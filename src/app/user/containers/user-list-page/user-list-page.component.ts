@@ -10,10 +10,10 @@ import { UserListPageDataSource, UserListPageItem } from './user-list-page-datas
   styleUrls: ['./user-list-page.component.scss']
 })
 export class UserListPageComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatTable) table: MatTable<UserListPageItem>;
-  dataSource: UserListPageDataSource;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatTable) table!: MatTable<UserListPageItem>;
+  dataSource!: UserListPageDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
