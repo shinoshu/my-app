@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { AppComponent } from '@my-app/core/containers/app.component';
+import { AppComponent } from '@my-app/core/containers/app/app.component';
 
 @NgModule({
   declarations: [
