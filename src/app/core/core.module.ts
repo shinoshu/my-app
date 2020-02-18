@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
-
+import { AppComponent } from '@my-app/core/containers/app.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AppComponent
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ]
 })
 export class CoreModule { }
