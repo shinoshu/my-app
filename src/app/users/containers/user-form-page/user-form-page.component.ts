@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
+import { addUsersApis } from '@my-app/users/actions/users-api.actions';
+import * as fromUsers from '@my-app/users/reducers/index';
 
 @Component({
   selector: 'app-user-form-page',
@@ -7,14 +11,17 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./user-form-page.component.scss']
 })
 export class UserFormPageComponent {
-  addressForm = this.fb.group({
+  form = this.fb.group({
     firstName: [null, Validators.required],
     lastName: [null, Validators.required],
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private store: Store<fromUsers.State>,
+  ) { }
 
   onSubmit() {
-    alert('Thanks!');
+    this.store.dispatch(addUsersApis(this.form.value));
   }
 }
