@@ -5,6 +5,10 @@ import { AppRoutingModule } from '@my-app/app-routing.module';
 import { CoreModule } from '@my-app/core/core.module';
 
 import { AppComponent } from '@my-app/core/containers/app/app.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   imports: [
@@ -12,6 +16,14 @@ import { AppComponent } from '@my-app/core/containers/app/app.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     CoreModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers, 
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      }
+    }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
   providers: [],
   bootstrap: [AppComponent]
