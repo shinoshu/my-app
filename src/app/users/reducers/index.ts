@@ -4,7 +4,7 @@ import {
   combineReducers,
   Action,
 } from '@ngrx/store';
-import * as fromUsers from '@my-app/user/reducers/user.reducer';
+import * as fromUsers from '@my-app/users/reducers/user.reducer';
 import * as fromRoot from '@my-app/reducers';
 
 export const usersFeatureKey = 'users';
