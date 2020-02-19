@@ -16,11 +16,16 @@ export interface UsersState {
 }
 
 export interface State extends fromRoot.State {
-  [fromUsers.usersFeatureKey]: UsersState;
+  [usersFeatureKey]: UsersState;
 }
 
 export function reducers(state: UsersState | undefined, action: Action) {
   return combineReducers({
     [fromUsers.usersFeatureKey]: fromUsers.reducer,
+    [fromUsersApi.usersApiFeatureKey]: fromUsersApi.reducer,
   })(state, action);
 }
+
+export const selectUsersState = createFeatureSelector<State, UsersState>(
+  usersFeatureKey
+);
