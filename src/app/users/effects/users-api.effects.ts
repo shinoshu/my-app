@@ -38,7 +38,7 @@ export class UsersApiEffects {
   addUsersApis$ = createEffect(() =>
     this.actions$.pipe(
       ofType(addUsersApis),
-      switchMap(({ user }) =>
+      mergeMap(({ user }) =>
         this.userService.addUser(user).pipe(
           map(() =>
             addUsersApisSuccess()
@@ -54,7 +54,7 @@ export class UsersApiEffects {
   deleteUsersApis$ = createEffect(() =>
     this.actions$.pipe(
       ofType(deleteUsersApis),
-      switchMap(({ id }) =>
+      mergeMap(({ id }) =>
         this.userService.deleteUser(id).pipe(
           map(() =>
             deleteUsersApisSuccess({ id })
