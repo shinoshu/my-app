@@ -29,3 +29,17 @@ export const addUsersApisFailure = createAction(
   '[UsersApi] Add UsersApis Failure',
   props<{ error: any }>()
 );
+
+export const deleteUsersApis = createAction(
+  '[UsersApi] Delete UsersApis',
+  props<{ id: string }>()
+);
+
+export const deleteUsersApisSuccess = createAction(
+  '[UsersApi] Delete UsersApis Success'
+);
+
+export const deleteUsersApisFailure = createAction(
+  '[UsersApi] Delete UsersApis Failure',
+  props<{ error: any }>()
+);
