@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "run-p json-server serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "json-server": "json-server testing/db.json --routes testing/routes.json"
+    "json-server": "json-server testing/db.json --routes testing/routes.json",
+    "serve": "ng serve"
   },
   "private": true,
   "dependencies": {
