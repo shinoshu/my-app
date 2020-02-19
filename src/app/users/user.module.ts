@@ -9,9 +9,10 @@ import * as fromUsers from '@my-app/users/reducers';
 import { UserEffects } from '@my-app/users/effects/user.effects';
 import { UsersApiEffects } from '@my-app/users/effects/users-api.effects';
 import { UserListPageComponent } from '@my-app/users/containers/user-list-page/user-list-page.component';
+import { UserFormPageComponent } from './containers/user-form-page/user-form-page.component';
 
 @NgModule({
-  declarations: [UserListPageComponent],
+  declarations: [UserListPageComponent, UserFormPageComponent],
   imports: [
     CommonModule,
     MaterialModule,
