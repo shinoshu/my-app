@@ -9,6 +9,9 @@ import {
   addUsersApis,
   addUsersApisSuccess,
   addUsersApisFailure,
+  deleteUsersApis,
+  deleteUsersApisSuccess,
+  deleteUsersApisFailure,
 } from '@my-app/users/actions/users-api.actions';
 import { User } from '@my-app/users/models/user.model';
 import { UserService } from '@my-app/users/services/user.service';
@@ -42,6 +45,22 @@ export class UsersApiEffects {
           ),
           catchError(error =>
             of(addUsersApisFailure({ error }))
+          )
+        )
+      )
+    )
+  );
+
+  deleteUsersApis$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(deleteUsersApis),
+      switchMap(({ id }) =>
+        this.userService.deleteUser(id).pipe(
+          map(() =>
+            deleteUsersApisSuccess()
+          ),
+          catchError(error =>
+            of(deleteUsersApisFailure({ error }))
           )
         )
       )

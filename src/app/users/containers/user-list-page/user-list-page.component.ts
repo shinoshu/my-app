@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 
 import { User } from '@my-app/users/models/user.model';
-import { loadUsersApis } from '@my-app/users/actions/users-api.actions';
+import { loadUsersApis, deleteUsersApis } from '@my-app/users/actions/users-api.actions';
 import * as fromUsers from '@my-app/users/reducers/index';
 
 @Component({
@@ -29,5 +29,9 @@ export class UserListPageComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit() {
     this.table.dataSource = this.store.pipe(select(fromUsers.selectAll));
+  }
+
+  delete(id: string) {
+    this.store.dispatch(deleteUsersApis({ id }));
   }
 }
