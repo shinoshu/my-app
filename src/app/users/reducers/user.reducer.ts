@@ -2,6 +2,7 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { User } from '@my-app/users/models/user.model';
 import * as UserActions from '@my-app/users/actions/user.actions';
+import * as UserApiActions from '@my-app/users/actions/users-api.actions';
 
 export const usersFeatureKey = 'users';
 
@@ -23,7 +24,9 @@ const userReducer = createReducer(
   on(UserActions.upsertUser,
     (state, action) => adapter.upsertOne(action.user, state)
   ),
-  on(UserActions.addUsers,
+  on(
+    UserActions.addUsers,
+    UserApiActions.loadUsersApisSuccess,
     (state, action) => adapter.addMany(action.users, state)
   ),
   on(UserActions.upsertUsers,
