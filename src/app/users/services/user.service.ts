@@ -15,4 +15,8 @@ export class UserService {
   getUserList(): Observable<User[]> {
     return this.http.get<User[]>(this.apiPath);
   }
+
+  addUser(user: User): Observable<void> {
+    return this.http.post<void>(this.apiPath, user);
+  }
 }
