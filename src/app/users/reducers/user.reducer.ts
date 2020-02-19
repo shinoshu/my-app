@@ -40,7 +40,9 @@ const userReducer = createReducer(
   on(UserActions.updateUsers,
     (state, action) => adapter.updateMany(action.users, state)
   ),
-  on(UserActions.deleteUser,
+  on(
+    UserActions.deleteUser,
+    UserApiActions.deleteUsersApisSuccess,
     (state, action) => adapter.removeOne(action.id, state)
   ),
   on(UserActions.deleteUsers,

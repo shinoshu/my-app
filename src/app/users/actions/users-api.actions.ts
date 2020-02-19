@@ -36,7 +36,8 @@ export const deleteUsersApis = createAction(
 );
 
 export const deleteUsersApisSuccess = createAction(
-  '[UsersApi] Delete UsersApis Success'
+  '[UsersApi] Delete UsersApis Success',
+  props<{ id: string }>()
 );
 
 export const deleteUsersApisFailure = createAction(

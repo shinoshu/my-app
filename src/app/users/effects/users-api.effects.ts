@@ -57,7 +57,7 @@ export class UsersApiEffects {
       switchMap(({ id }) =>
         this.userService.deleteUser(id).pipe(
           map(() =>
-            deleteUsersApisSuccess()
+            deleteUsersApisSuccess({ id })
           ),
           catchError(error =>
             of(deleteUsersApisFailure({ error }))
