@@ -10,6 +10,12 @@ import { UserEffects } from '@my-app/users/effects/user.effects';
 import { UsersApiEffects } from '@my-app/users/effects/users-api.effects';
 import { UserListPageComponent } from '@my-app/users/containers/user-list-page/user-list-page.component';
 import { UserFormPageComponent } from './containers/user-form-page/user-form-page.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [UserListPageComponent, UserFormPageComponent],
@@ -19,6 +25,12 @@ import { UserFormPageComponent } from './containers/user-form-page/user-form-pag
     UserRoutingModule,
     StoreModule.forFeature(fromUsers.usersFeatureKey, fromUsers.reducers),
     EffectsModule.forFeature([UserEffects, UsersApiEffects]),
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
   ]
 })
 export class UserModule { }
