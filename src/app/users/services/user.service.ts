@@ -8,7 +8,7 @@ import { User } from '@my-app/users/models/user.model';
   providedIn: 'root'
 })
 export class UserService {
-  private apiPath = 'users';
+  private apiPath = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) { }
 
