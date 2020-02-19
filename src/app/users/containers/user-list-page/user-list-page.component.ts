@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -21,7 +22,10 @@ export class UserListPageComponent implements AfterViewInit, OnInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'delete'];
 
-  constructor(private store: Store<fromUsers.State>) { }
+  constructor(
+    private store: Store<fromUsers.State>,
+    public router: Router,
+  ) { }
 
   ngOnInit() {
     this.store.dispatch(loadUsersApis());

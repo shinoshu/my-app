@@ -1,4 +1,8 @@
 <div class="mat-elevation-z8">
+  <button mat-fab (click)="router.navigate(['/users/add'])">
+    <mat-icon>add</mat-icon>
+  </button>
+
   <table mat-table class="full-width-table" matSort aria-label="Elements">
     <!-- Id Column -->
     <ng-container matColumnDef="id">
