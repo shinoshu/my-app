@@ -32,7 +32,7 @@ export class UserListPageComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.table.dataSource = this.store.pipe(select(fromUsers.selectAll));
+    this.table.dataSource = this.store.pipe(select(fromUsers.selectAllUsers));
   }
 
   delete(id: string) {

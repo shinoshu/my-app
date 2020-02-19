@@ -35,14 +35,9 @@ export const selectUserEntitiesState = createSelector(
   state => state.users
 );
 
-export const selectSelectedUserId = createSelector(
-  selectUserEntitiesState,
-  fromUsers.selectId
-);
-
 export const {
-  selectIds,
-  selectEntities,
-  selectAll,
-  selectTotal,
+  selectIds: selectUserIds,
+  selectEntities: selectUserEntities,
+  selectAll: selectAllUsers,
+  selectTotal: selectUserTotal,
 } = fromUsers.adapter.getSelectors(selectUserEntitiesState);
