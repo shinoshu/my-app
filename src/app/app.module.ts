@@ -17,7 +17,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     CoreModule,
     StoreModule.forRoot(reducers, {
-      metaReducers, 
+      metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
         strictActionImmutability: true,
