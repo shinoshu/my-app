@@ -15,3 +15,17 @@ export const loadUsersApisFailure = createAction(
   '[UsersApi] Load UsersApis Failure',
   props<{ error: any }>()
 );
+
+export const addUsersApis = createAction(
+  '[UsersApi] Add UsersApis',
+  props<{ user: User }>()
+);
+
+export const addUsersApisSuccess = createAction(
+  '[UsersApi] Add UsersApis Success'
+);
+
+export const addUsersApisFailure = createAction(
+  '[UsersApi] Add UsersApis Failure',
+  props<{ error: any }>()
+);
