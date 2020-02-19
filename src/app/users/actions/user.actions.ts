@@ -51,3 +51,8 @@ export const deleteUsers = createAction(
 export const clearUsers = createAction(
   '[User/API] Clear Users'
 );
+
+export const selectUser = createAction(
+  '[User/API] Select User',
+  props<{ id: string }>()
+);

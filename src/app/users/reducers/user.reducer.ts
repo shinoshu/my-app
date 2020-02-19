@@ -54,6 +54,9 @@ const userReducer = createReducer(
   on(UserActions.clearUsers,
     state => adapter.removeAll(state)
   ),
+  on(UserActions.selectUser,
+    (state, { id }) => ({ ...state, selectedUserId: id })
+  ),
 );
 
 export function reducer(state: State | undefined, action: Action) {
