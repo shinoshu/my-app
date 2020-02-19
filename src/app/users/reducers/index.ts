@@ -29,3 +29,20 @@ export function reducers(state: UsersState | undefined, action: Action) {
 export const selectUsersState = createFeatureSelector<State, UsersState>(
   usersFeatureKey
 );
+
+export const selectUserEntitiesState = createSelector(
+  selectUsersState,
+  state => state.users
+);
+
+export const selectSelectedUserId = createSelector(
+  selectUserEntitiesState,
+  fromUsers.selectId
+);
+
+export const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal,
+} = fromUsers.adapter.getSelectors(selectUserEntitiesState);

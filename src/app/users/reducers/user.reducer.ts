@@ -7,13 +7,15 @@ import * as UserApiActions from '@my-app/users/actions/users-api.actions';
 export const usersFeatureKey = 'users';
 
 export interface State extends EntityState<User> {
-  // additional entities state properties
+  selectedUserId: string | null;
 }
 
-export const adapter: EntityAdapter<User> = createEntityAdapter<User>();
+export const adapter: EntityAdapter<User> = createEntityAdapter<User>({
+  selectId: (user: User) => user.id,
+});
 
 export const initialState: State = adapter.getInitialState({
-  // additional entity state properties
+  selectedUserId: null,
 });
 
 const userReducer = createReducer(
@@ -56,9 +58,4 @@ export function reducer(state: State | undefined, action: Action) {
   return userReducer(state, action);
 }
 
-export const {
-  selectIds,
-  selectEntities,
-  selectAll,
-  selectTotal,
-} = adapter.getSelectors();
+export const selectId = (state: State) => state.selectedUserId;
