@@ -20,7 +20,7 @@ export class UserListPageComponent implements AfterViewInit, OnInit {
   @ViewChild(MatTable) table!: MatTable<User>;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'delete'];
+  displayedColumns = ['id', 'name', 'edit', 'delete'];
 
   constructor(
     private store: Store<fromUsers.State>,

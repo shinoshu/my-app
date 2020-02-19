@@ -15,6 +15,11 @@ export const routes: Routes = [
     component: UserFormPageComponent,
     data: { title: 'User Form' },
   },
+  {
+    path: 'edit/:id',
+    component: UserFormPageComponent,
+    data: { title: 'User Form' },
+  },
 ];
 
 @NgModule({
