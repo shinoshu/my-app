@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 
 import { User } from '@my-app/users/models/user.model';
 import { selectUser } from '@my-app/users/actions/user.actions';
@@ -17,9 +17,11 @@ import * as fromUsers from '@my-app/users/reducers/index';
 })
 export class UserFormPageComponent implements OnInit, OnDestroy {
   form = this.fb.group({
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
+    first_name: [null, Validators.required],
+    last_name: [null, Validators.required],
   });
+
+  user$!: Observable<User>;
 
   subscription = new Subscription();
 
@@ -34,7 +36,11 @@ export class UserFormPageComponent implements OnInit, OnDestroy {
     this.subscription.add(subscription);
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.user$ = this.store.pipe(select(fromUsers.selectCurrentUser));
+    const subscription = this.user$.subscribe(user => this.form.patchValue(user));
+    this.subscription.add(subscription);
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
