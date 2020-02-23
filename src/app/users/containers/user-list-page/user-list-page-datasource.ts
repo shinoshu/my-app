@@ -7,6 +7,7 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 
 import * as fromUsers from '@my-app/users/reducers/index';
 import { User } from '@my-app/users/models/user.model';
+import { loadUsersApis } from '@my-app/users/actions/users-api.actions';
 
 /**
  * Data source for the UserListPage view. This class should
@@ -27,6 +28,7 @@ export class UserListPageDataSource extends DataSource<User> {
    * @returns A stream of the items to be rendered.
    */
   connect(): Observable<User[]> {
+    this.store.dispatch(loadUsersApis());
     return this.store.pipe(select(fromUsers.selectAllUsers));
   }
 
