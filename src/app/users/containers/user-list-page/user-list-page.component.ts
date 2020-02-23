@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 
+import { UserListPageDataSource } from './user-list-page-datasource';
 import { User } from '@my-app/users/models/user.model';
 import { loadUsersApis, deleteUsersApis } from '@my-app/users/actions/users-api.actions';
 import * as fromUsers from '@my-app/users/reducers/index';
@@ -18,6 +19,7 @@ export class UserListPageComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<User>;
+  dataSource!: UserListPageDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name', 'edit', 'delete'];
@@ -29,10 +31,13 @@ export class UserListPageComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadUsersApis());
+    this.dataSource = new UserListPageDataSource(this.store);
   }
 
   ngAfterViewInit() {
-    this.table.dataSource = this.store.pipe(select(fromUsers.selectAllUsers));
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.table.dataSource = this.dataSource;
   }
 
   delete(id: string) {
