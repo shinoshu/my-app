@@ -1,15 +1,11 @@
-<div class="mat-elevation-z8">
-  <button mat-fab (click)="router.navigate(['/users/add'])">
-    <mat-icon>add</mat-icon>
-  </button>
+<div class="container" fxLayout="column">
+  <div fxLayout="row" fxLayoutAlign="end">
+    <button mat-fab (click)="router.navigate(['/users/add'])">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 
-  <table
-    mat-table
-    matSort
-    class="full-width-table"
-    aria-label="Elements"
-    [dataSource]="dataSource"
-  >
+  <table mat-table matSort [dataSource]="dataSource">
     <!-- Id Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
