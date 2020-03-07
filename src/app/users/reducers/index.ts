@@ -50,5 +50,5 @@ export const selectCurrentUserId = createSelector(
 export const selectCurrentUser = createSelector(
   selectUserEntities,
   selectCurrentUserId,
-  (userEntities, userId) => userEntities[userId]
+  (userEntities, userId) => userId && userEntities[userId]
 );
