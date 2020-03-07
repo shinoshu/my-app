@@ -37,7 +37,7 @@ export class UserFormPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.user$ = this.store.pipe(select(fromUsers.selectCurrentUser));
+    this.user$ = this.store.pipe(select(fromUsers.selectCurrentUser)) as Observable<User>;
     const subscription = this.user$.subscribe(user => user && this.form.patchValue(user));
     this.subscription.add(subscription);
   }
