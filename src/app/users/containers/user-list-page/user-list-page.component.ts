@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { MatPaginator } from '@angular/material/paginator';
@@ -15,7 +15,7 @@ import { Observable, Subscription } from 'rxjs';
   templateUrl: './user-list-page.component.html',
   styleUrls: ['./user-list-page.component.scss']
 })
-export class UserListPageComponent implements OnInit, OnDestroy {
+export class UserListPageComponent implements AfterViewInit, OnInit, OnDestroy {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource!: MatTableDataSource<User>;
@@ -33,15 +33,18 @@ export class UserListPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.store.dispatch(loadUsersApis());
     this.users$ = this.store.pipe(select(fromUsers.selectAllUsers));
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  ngAfterViewInit() {
     this.subscription = this.users$.subscribe(users => {
       this.dataSource = new MatTableDataSource(users);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
   delete(id: string) {
