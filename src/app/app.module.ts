@@ -12,6 +12,7 @@ import { AppComponent } from '@my-app/core/containers/app/app.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from '@my-app/reducers';
 import { environment } from '../environments/environment';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { environment } from '../environments/environment';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     AppRoutingModule,
     CoreModule,
+    NgxAuthFirebaseUIModule.forRoot(PUT_YOUR_FIREBASE_API_KEY_HERE),
   ],
   providers: [],
   bootstrap: [AppComponent]
