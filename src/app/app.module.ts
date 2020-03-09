@@ -31,7 +31,7 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     AppRoutingModule,
     CoreModule,
-    NgxAuthFirebaseUIModule.forRoot(PUT_YOUR_FIREBASE_API_KEY_HERE),
+    NgxAuthFirebaseUIModule.forRoot(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent]
