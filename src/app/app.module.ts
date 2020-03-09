@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from '@my-app/app-routing.module';
+import { AuthModule } from '@my-app/auth/auth.module';
 import { CoreModule } from '@my-app/core/core.module';
 
 import { AppComponent } from '@my-app/core/containers/app/app.component';
@@ -30,6 +31,7 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     AppRoutingModule,
+    AuthModule,
     CoreModule,
     NgxAuthFirebaseUIModule.forRoot(environment.firebase),
   ],
