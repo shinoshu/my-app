@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ca-shinozaki-test": {
+      "hosting": {
+        "my-app": [
+          "ca-shinozaki-test"
+        ]
+      }
+    }
+  }
+}
