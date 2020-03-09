@@ -4,9 +4,10 @@ import { AuthRoutingModule } from './auth-routing.module';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
 import { LoginPageComponent } from './containers/login-page/login-page.component';
+import { SignupPageComponent } from './containers/signup-page/signup-page.component';
 
 @NgModule({
-  declarations: [LoginPageComponent],
+  declarations: [LoginPageComponent, SignupPageComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
