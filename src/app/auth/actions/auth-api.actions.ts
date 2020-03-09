@@ -1,15 +1,29 @@
 import { createAction, props } from '@ngrx/store';
 
-export const loadAuthApis = createAction(
-  '[AuthApi] Load AuthApis'
+export const login = createAction(
+  '[AuthApi] Login'
 );
 
-export const loadAuthApisSuccess = createAction(
-  '[AuthApi] Load AuthApis Success',
+export const loginSuccess = createAction(
+  '[AuthApi] Login Success',
   props<{ data: any }>()
 );
 
-export const loadAuthApisFailure = createAction(
-  '[AuthApi] Load AuthApis Failure',
+export const loginFailure = createAction(
+  '[AuthApi] Login Failure',
+  props<{ error: any }>()
+);
+
+export const logout = createAction(
+  '[AuthApi] Logout'
+);
+
+export const logoutSuccess = createAction(
+  '[AuthApi] Logout Success',
+  props<{ data: any }>()
+);
+
+export const logoutFailure = createAction(
+  '[AuthApi] Logout Failure',
   props<{ error: any }>()
 );
