@@ -1,4 +1,4 @@
 <ngx-auth-firebaseui-login
-  (onSuccess)="router.navigate(['/users'])"
+  (onSuccess)="loginSuccess($event)"
   (onCreateAccountRequested)="router.navigate(['/signup'])"
 ></ngx-auth-firebaseui-login>
