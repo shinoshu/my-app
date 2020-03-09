@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { AppRoutingModule } from '@my-app/app-routing.module';
@@ -21,6 +23,8 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
     BrowserAnimationsModule,
     HttpClientModule,
     FlexLayoutModule,
+    AngularFireAuthModule,
+    AngularFireAuthGuardModule,
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
