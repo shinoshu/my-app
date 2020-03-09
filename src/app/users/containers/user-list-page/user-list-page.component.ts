@@ -31,6 +31,7 @@ export class UserListPageComponent implements AfterViewInit, OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
+    this.dataSource = new MatTableDataSource();
     this.store.dispatch(loadUsersApis());
     this.users$ = this.store.pipe(select(fromUsers.selectAllUsers));
   }
@@ -41,7 +42,7 @@ export class UserListPageComponent implements AfterViewInit, OnInit, OnDestroy {
 
   ngAfterViewInit() {
     this.subscription = this.users$.subscribe(users => {
-      this.dataSource = new MatTableDataSource(users);
+      this.dataSource.data = users;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
     });

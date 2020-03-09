@@ -19,6 +19,7 @@ export class UserFormPageComponent implements OnInit, OnDestroy {
   form = this.fb.group({
     first_name: [null, Validators.required],
     last_name: [null, Validators.required],
+    email: [null, Validators.required],
   });
 
   user$!: Observable<User>;
