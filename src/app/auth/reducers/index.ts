@@ -22,3 +22,15 @@ export function reducers(state: AuthState | undefined, action: Action) {
     [fromAuth.authFeatureKey]: fromAuth.reducer,
   })(state, action);
 }
+
+export const selectAuthState = createFeatureSelector<State, AuthState>(
+  authFeatureKey
+);
+
+// TODO
+export const selectAuthStatusState = createSelector(
+  selectAuthState,
+  state => state.auth
+);
+
+export const selectLoggedIn = createSelector(selectAuthStatusState, state => state.isLoggedIn);

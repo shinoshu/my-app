@@ -3,6 +3,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { select, Store } from '@ngrx/store';
+
+import * as fromAuth from '@my-app/auth/reducers/index';
 
 @Component({
   selector: 'app-nav',
@@ -10,6 +13,7 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
+  isLoggedIn$ = this.store.pipe(select(fromAuth.selectLoggedIn));
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -20,5 +24,6 @@ export class NavComponent {
   constructor(
     private breakpointObserver: BreakpointObserver,
     public router: Router,
+    private store: Store<fromAuth.State>,
   ) { }
 }
