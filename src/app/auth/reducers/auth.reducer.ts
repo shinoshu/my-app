@@ -14,7 +14,9 @@ export const initialState: State = {
 const authReducer = createReducer(
   initialState,
   on(AuthActions.loginSuccess,
-    (state, { data }) => ({ ...state, isLoggedIn: true })
+    // TOOD
+    // (state, { data }) => ({ ...state, isLoggedIn: true })
+    state => ({ ...state, isLoggedIn: true })
   ),
   on(AuthActions.logoutSuccess,
     (state, { data }) => ({ ...state, isLoggedIn: false })

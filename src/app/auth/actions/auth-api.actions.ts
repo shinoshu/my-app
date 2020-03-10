@@ -6,7 +6,8 @@ export const login = createAction(
 
 export const loginSuccess = createAction(
   '[AuthApi] Login Success',
-  props<{ data: any }>()
+  // TOOD
+  // props<{ data: any }>()
 );
 
 export const loginFailure = createAction(

@@ -21,7 +21,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   loginSuccess(data: any) {
-    this.store.dispatch(loginSuccess({ data }));
+    this.store.dispatch(loginSuccess());
     this.router.navigate(['/users']);
   }
 }
